@@ -1,0 +1,112 @@
+Here's your **fully detailed and production-ready Replit AI prompt** to create the **AI-powered Quote Generator App** for **Lazope Construction Company**, integrated with **n8n**, **Supabase**, and **Google Sheets**, with a clear focus on modular Agentic AI structure.
+
+---
+
+### ✅ COPY & PASTE THIS INTO REPLIT AI:
+
+````txt
+You are an expert AI developer. Help me build a web app for a construction company called **Lazope Construction Company**. This app is designed to generate and send quotations to clients using Agentic AI principles. It will integrate with **Supabase**, **Google Sheets**, and **n8n** via a webhook.
+
+---
+
+### 🔧 TECHNOLOGIES:
+- Frontend: HTML/CSS/JS or React (simple form UI)
+- Backend: Node.js (Express preferred), using fetch or axios
+- External Systems:
+  - Supabase (for DB storage)
+  - n8n Webhook: https://ngonidzashezimbwa.app.n8n.cloud/webhook-test/0faf29c7-1eb2-4ece-8a8b-8a2b46cd5d83
+  - Google Sheets (for logging quote data)
+  - Optional: HTML-to-PDF API (for generating quote PDFs)
+
+---
+
+### 🧠 GOAL:
+To build a modular web system that allows:
+1. **Clients or staff** to fill out a quote form
+2. **App sends the quote data** to the above n8n webhook
+3. n8n handles the rest: stores quote in Supabase, generates PDF, emails client, logs to Google Sheets
+
+---
+
+### ✏️ FRONTEND FORM (Fields):
+```plaintext
+- Client Name
+- Client Email
+- Client Phone
+- Client Address
+- Validity Period (days)
+- Terms and Conditions (textarea)
+- Services Table (dynamic rows):
+  - Description
+  - Unit
+  - Quantity
+  - Unit Price
+````
+
+Submit button: `Send Quote`
+
+---
+
+### 📦 SAMPLE JSON FORMAT TO POST TO WEBHOOK:
+
+```json
+{
+  "client_name": "John Moyo",
+  "client_email": "john@example.com",
+  "client_phone": "+263771234567",
+  "client_address": "123 Lazope Street, Harare",
+  "quote_number": "LZQ-001",
+  "validity_days": 14,
+  "terms": "50% upfront before project start",
+  "services": [
+    {
+      "description": "Bricklaying",
+      "unit": "m²",
+      "quantity": 120,
+      "unit_price": 7.50
+    },
+    {
+      "description": "Cement Supply",
+      "unit": "bags",
+      "quantity": 30,
+      "unit_price": 10.00
+    }
+  ]
+}
+```
+
+---
+
+### 📡 BACKEND LOGIC:
+
+* On form submit, collect form values and send a POST request to the webhook.
+* Include logic to generate a unique `quote_number` like `LZQ-001`, `LZQ-002` etc.
+* Optionally show a confirmation message or a preview page after sending the data.
+
+---
+
+### ✅ AGENTIC AI STRUCTURE (Internal Modules):
+
+* **Trigger Agent**: Captures input from the form
+* **Quote Builder Agent**: Formats and calculates totals
+* **Webhook Communicator Agent**: Sends data to n8n
+* **Status Notifier Agent**: Displays success/failure to user
+
+---
+
+### 🔒 SECURITY NOTES:
+
+* Sanitize inputs
+* Ensure webhook URL is stored in `.env` file
+* Basic rate limiting to avoid spam
+
+---
+
+Let’s scaffold the entire project with comments and a clean file structure. The app should be easy to host on Replit and link with the n8n workflow above. Name the repo: `lazope-quote-agent`
+
+```
+
+---
+
+Would you like me to **generate the full project code scaffold** (HTML + JS + webhook call) or help build the **PDF template for n8n** next?
+```
